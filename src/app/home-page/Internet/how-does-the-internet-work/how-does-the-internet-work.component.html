@@ -1,0 +1,77 @@
+<header>
+    <h1 class="text-white text-center text-shadow py-3">How does the Internet work?</h1>
+</header>
+<section>
+    <div class="container text-white py-4">
+        <h3 class="text-shadow py-2 font-weight-bold">
+            1. 網路的歷史 History
+        </h3>
+        <div class="history w-100 d-flex">
+            <p class="col-8">
+                網際網路起源於1960年，原本是美國軍方資助的項目，後來在各方資助下演變為公共設施。
+            </p>
+            <img class="img-size col-4" src="../../../assets/internet_history.png" alt="internet_history">
+        </div>
+        <div class="principle">
+            <h3 class="text-shadow py-2 font-weight-bold">
+                2. 網路原理 Principle
+            </h3>
+            <div class="d-flex w-100">
+                <div class="col-8">
+                    <p class="lh-lg">
+                        Internet實際上是一種設計哲學(Design philosophy)，
+                        也是一組協定(protocol)的結構表現(an architecture expressed in a set of protocols)。
+                    </p>
+                    <p class="lh-lg">
+                        協定由一組公認的規則和標準所組成，目的在於讓想要使用網際網路進行通訊的組織使用這些規範，避免通訊出錯。
+                        更重要的是，網際網路的設計哲學可以調整與納入新的通訊技術，因為新的通訊技術只要配合協定，就能以某種方式使用網際網路。
+                    </p>
+                    <p class="lh-lg">
+                        簡略的網路原理並不難理解，任何需要網際網路的電腦都必須透過某種方式進行連接(網路線、電話線、微波)。
+                        每一台在網際網路上的電腦都會有自己的IP位置，這個位置是獨特的，電腦可以透過IP位置找到另外一台電腦。
+                        透過這樣的方式向他請求資料。
+                    </p>
+                    <p class="lh-lg">
+                        電腦又可以簡單分為兩種，分別為客戶端(Client)和伺服器(Server)。
+                    </p>
+                    <p class="lh-lg">
+                        兩者的區別在於伺服器直接連上網際網路，而客戶端則透過伺服器與網際網路連接。
+                    </p>
+                </div>
+                <img class="img-size col-4" src="../../../assets/Internet.png" alt="internet">
+            </div>
+        </div>
+        <div class="IP-Address ">
+            <h3 class="text-shadow py-2 font-weight-bold">3. IP地址 Internet Protocols Address </h3>
+            <p class=" col-8 lh-lg">
+                各式各樣的設備在網際網路中，都有一個獨特的地址，稱為IP位置(Internet Protocols Address)。
+                IP位置為一串號碼(ex:192.168.0.1)，IP地址就像現實世界中的地址。
+            </p>
+            <p class=" col-8 lh-lg">
+                如果你需要寄信，你不需要知道你要寄給誰，
+                只需要知道要寄到哪裡，還有如何撰寫正確的地址格式。
+            </p>
+            <p class=" col-8 lh-lg">
+                瀏覽網站等於是你的電腦在向另外一台電腦請求資料，你的電腦向另外一台電腦發出訊息，同時附帶自己的IP位置，另一台電腦透過IP位置回覆你的訊息
+                IP位置的數字由層級組成，就像現實世界的地址有分為國家、市區、街道、門牌號碼一樣。
+            </p>
+            <p class=" col-8 lh-lg">
+                傳統的IP地址為32位元，由4組8位元的資料組成。
+                通常第一組和第二組數字為國家或區域，第三組為子網路，第四組則代表裝置
+            </p>
+            <p class=" col-8 lh-lg">
+                這種4組8位元的IP表示法為IPv4，但IPv4的位置已經不太夠用了，所以出現了IPv6
+                IPv6位置的長度128位元，提供非常多的地址可以使用。
+            </p>
+        </div>
+        <div class="DNS ">
+            <h3 class="text-shadow py-2 font-weight-bold">4. 網域名稱系統(Domain Name System) </h3>
+            <p class=" col-8 lh-lg">
+                大部分的使用者不會直接看到IP位置，取而代之他們會看見網域名稱(Domain Name)
+                ex:www.yahoo.com
+                每個網域名稱會對應到一個IP位置，你的電腦會透過DNS(Domain Name System)查詢IP位置，再透過IP位置連接到目的地。
+            </p>
+        </div>
+
+    </div>
+</section>

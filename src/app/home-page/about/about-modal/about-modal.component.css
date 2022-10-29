@@ -1,0 +1,7 @@
+.text-shadows {
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.text-shadows:hover {
+    text-shadow: 1px 1px 1px rgb(112, 112, 112);
+}

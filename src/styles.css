@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    background-color: rgba(33, 37, 41, 0.9) !important;
+}
+
+/* for Internet topic */
+.text-shadow {
+    text-shadow: 0 0 8px rgb(152, 152, 152);
+}
+
+/* for Internet picture */
+.img-size {
+    width: 35%;
+    margin-left: auto;
+    display: block;
+}

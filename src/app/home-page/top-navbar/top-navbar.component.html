@@ -1,0 +1,25 @@
+<nav class="nav bg-dark py-1">
+    <ul ngbNav #nav="ngbNav">
+        <li ngbNavItem="1">
+            <a ngbNavLink [routerLink]="['./about']" class=" text-white">About</a>
+        </li>
+        <li ngbNavItem="2">
+            <a ngbNavLink [routerLink]="['./learning']" class=" text-white">Experience</a>
+        </li>
+        <li ngbDropdown ngbNavItem="3">
+            <a (click)="false" ngbNavLink class="nav-link text-white" ngbDropdownToggle>Internet</a>
+            <div ngbDropdownMenu class="bg-dark">
+                <button ngbDropdownItem class="text-white" [routerLink]="['./how-does-the-internet-work']">
+                    How does the internet work?
+                </button>
+                <button ngbDropdownItem class="text-white" [routerLink]="['./protocol-stacks']">
+                    Protocol-stacks
+                </button>
+                <!-- <button ngbDropdownItem class="text-white">Another action</button>
+                <button ngbDropdownItem class="text-white">Something else here</button>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem class="text-white dropdown-item">Separated link</button> -->
+            </div>
+        </li>
+    </ul>
+</nav>

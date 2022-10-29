@@ -1,0 +1,144 @@
+<header>
+    <h1 class="text-white text-center text-shadow py-3">Protocol Stacks</h1>
+</header>
+<section>
+    <div class="container text-white py-4">
+        <div class="Protocol-Stack py-2">
+            <h3 class="text-shadow py-2 font-weight-bold">
+                1. 協定堆疊 Protocol-Stacks
+            </h3>
+            <p class="col-8">
+                協定通常是為了特定目的而設計的，這樣可以讓設計更簡化，讓協定間的依賴性不那麼高，可以獨立運作。
+                而網路也是由這些協定堆疊出來的。
+            </p>
+        </div>
+        <div class="OSI-Model">
+            <h3 class="text-shadow py-2 font-weight-bold">
+                2. OSI七層架構 Open System Interconnection Reference Model
+            </h3>
+            <p class="col-8">
+                OSI七層架構，是一個概念模型，適用於系統間互相連接的架構，也是網路的基本模型。
+            </p>
+            <p class="col-8">
+                由底層到高層，照順序為
+                實體層，資料連結層，網路層，傳輸層，會議層，表現層，應用層。
+            </p>
+            <p class="col-8">
+                以下分開說明每層的責任。
+            </p>
+            <div class="d-flex flex-column-reverse">
+                <div id="physical-layer">
+                    <button (click)="physicalLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Physical Layer
+                    </button>
+                    <div #physicalLayerTag="ngbCollapse" [(ngbCollapse)]="physicalLayer"
+                        class="card text-dark p-2 col-8">
+                        實體層的責任在於傳送和接收非結構化的原始資料，透過實體裝置(網路介面控制器、交換器、乙太網路)，
+                        將digital bits(or Bit Streams)轉換成電子訊號、廣播、光學訊號之類，可以透過實體傳送的型態，這層協定詳細定義了傳送時的規則，
+                        像是電壓，物理數據速率，最大傳輸距離，位元速率也在這層決定(Ｍbps,Gbps)，
+                        傳送模式可以分為單工、雙工、半雙工，物理層的實作包含了藍芽，USB，乙太網路，
+                        這層也定義了物理訊號的傳送方式，像是用幾伏特代表0，幾伏特代表1。
+                    </div>
+                </div>
+                <div id="datalink-layer">
+                    <button (click)="dataLinkLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Data Link Layer
+                    </button>
+                    <div #dataLinkLayerTag="ngbCollapse" [(ngbCollapse)]="dataLinkLayer"
+                        class="card text-dark p-2 col-8">
+                        實體層主要解決的是實體資料傳輸上的問題，所以在實體層之上的協定，不需要再考慮實體傳輸資料上的問題。
+                        資料連結層所考慮的是如何從傳送端安全的把資料傳送到接收端。
+                        當接收端收到資料時，確定資料是正確的，如果資料不完整自動重送請求。
+                        資料連結層首先會將資料訊框化(位元串列，Bit Streams)，訊框的起始與結束必須可以被辨認出來。
+                        這一層負責建立到另一台裝置之間實體的連線，包括連線的啟動，結束，及連線狀態，並控制資料的流量，傳送訊框的速度不能超過接收端的速度。
+                        資料連結層還需要媒介存取機制，為了讓各個裝置公平的取得傳輸媒介的使用權，這層將會加上MAC位置(Madia Access Control Address也稱實體位置)
+                        ，分辨不同的來源與目標位置。
+                        資料連結層跟實體層的溝通比較密切。
+                    </div>
+                </div>
+                <div id="network-layer">
+                    <button (click)="networkLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Network Layer
+                    </button>
+                    <div #networkLayerTag="ngbCollapse" [(ngbCollapse)]="networkLayer" class="card text-dark p-2 col-8">
+                        網路層會透過IP位置找到下一個節點，網路層依賴IP位置進行節點選擇，
+                        同一個網路內的內部通訊不需要透過網路層找到下一個節點，透過資料連結層即可完成傳送，
+                        不同網路則需要透過路由器(或其他網路層裝置)的補助找到另一個網路。
+                        (路由器可以用於連接兩以上的個別網路)。
+                        總結來說，這層主要負責提供路由與尋址的功能，使兩個終端能找到合適的路徑進行資料傳送。
+                    </div>
+                </div>
+                <div id="transport-Layer">
+                    <button (click)="transportLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">Transport
+                        Layer</button>
+                    <div #transportLayerTag="ngbCollapse" [(ngbCollapse)]="transportLayer"
+                        class="card text-dark p-2 col-8">
+                        <p>
+                            經過前面三層的協定之後，可以當作兩台終端的連線已經完成了，透過前面三層協定，
+                            兩台電腦建立了連線，就好像兩台電腦已經合併成一台，或是說在兩台在隔壁工作，
+                            前面三層專注於網路與實體的連線方式，比較偏向於網路工程師的範疇，
+                            而傳輸層之上的層，則是專注於應用程式，偏向於軟體工程師。
+                        </p>
+                        <p>
+                            傳輸層負責的是應用程式之間的溝通，通常主機都會有多個應用程序需要使用到網路，
+                            傳輸層的主要工作，就是提供這些程序之間的連線，一般的傳輸層會提供許多埠口(port)來讓應用程式連接，
+                            使應用程式之間可以達到點對點的連接，又稱終端對終端連線。
+                            這層也會提供檢查封包並且在封包不正確時，發出重送請求的功能。
+                            其中傳輸層最常聽到的協定為TCP(Transmission Control Protocal)和UDP(User Datagram Protocol)，
+                            兩者的差別在於TCP提供的是連線導向的服務，UDP則是非連接服務。
+                            TCP大多用於大量資料的傳輸協定上，例如FTP、HTTP，UDP則用於少量資料的傳輸協定，像DNS或SNMP。
+                        </p>
+                    </div>
+                </div>
+                <div id="session-layer">
+                    <button (click)="sessionLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Session Layer
+                    </button>
+                    <div #sessionLayerTag="ngbCollapse" [(ngbCollapse)]="sessionLayer" class="card text-dark p-2 col-8">
+                        會議層的協定負責控制使用者或應用程序之間對談的連接、同步、資料傳送。
+                        傳輸層建立了應用程式之間的通訊連接。
+                        而這條線路一次只能做一個事情，舉例來說，無法用同一條傳輸層的連接，雙方同時向對方傳送資料。
+                        這時就需要會議層來管理傳輸層的連線。
+                        當應用層的兩個應用程式連接之後，需要建立會議，會議決定傳輸的模式以及會議的模式。
+                        會議的模式有1對1、1對多、多對多。
+                        傳輸的模式有單向傳輸、雙向同時傳輸、雙向交替傳輸。
+                        ex:1對1的雙向同時傳輸，需要使用到兩條傳輸層線路，一條接收，一條傳出，才可以實現同時進行傳輸和接收。
+                    </div>
+                </div>
+                <div id="presentation-layer">
+                    <button (click)="presentationLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Presentation Layer
+                    </button>
+                    <div #presentationLayerTag="ngbCollapse" [(ngbCollapse)]="PresentationLayer"
+                        class="card text-dark p-2 col-8">
+                        表現層負責處理資料格式，像是資料的語法、壓縮方式、加密方式。
+                        使用者兩端必須協議出溝通的資料格式。(ex:ASCII, UTF-8)
+                    </div>
+                </div>
+                <div id="application_layer">
+                    <button (click)="applicationLayerTag.toggle()" class="btn btn-outline-light my-2 col-8">
+                        Application Layer
+                    </button>
+                    <div #applicationLayerTag="ngbCollapse" [(ngbCollapse)]="ApplicationLayer"
+                        class="card text-dark p-2 col-8">
+                        應用層提供各種服務給應用程式，應用層提供使用者與網路溝通的介面，就像APP一樣提供介面供使用者使用。
+                        應用層就是希望透過網路架構發展出應用。
+                    </div>
+                </div>
+            </div>
+            <div class="summary py-2">
+                <h3 class="text-shadow py-2 font-weight-bold">
+                    3. 總結 Summary
+                </h3>
+                <p class="col-8">
+                    由上述介紹可以大致將協定分為幾個區塊方便記憶。
+                <p>1.實體層、資料連結層：處理實體資料的訊號傳送與轉換成訊框。</p>
+                <p>2.網路層：找到網路上的目標主機，並建立連線。</p>
+                <p>3.傳輸層、會議層：建立應用程式之間的溝通連線與管道。</p>
+                <p>4.表達層：決定應用程式之間的溝通資料格式。</p>
+                <p>5.應用層：使用者與網路溝通的介面。</p>
+
+            </div>
+        </div>
+    </div>
+</section>

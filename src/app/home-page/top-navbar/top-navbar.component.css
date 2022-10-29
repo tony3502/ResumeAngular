@@ -1,0 +1,21 @@
+.active {
+    color: aquamarine !important;
+}
+
+.dropdown-menu {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.dropdown-item {
+    transition: all .2s;
+}
+
+.dropdown-item:hover {
+    color: black !important;
+}
+
+.dropdown-item:focus {
+    background-color: rgb(33, 37, 41);
+    color: aquamarine !important;
+}
