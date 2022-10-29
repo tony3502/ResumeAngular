@@ -14,7 +14,9 @@ export class AboutModalComponent implements OnInit {
   }
 
   open(modal: any) {
-    this.ModalService.open(modal);
+    this.ModalService.open(modal, { centered: true });
   }
-
+  closeModal() {
+    this.ModalService.dismissAll();
+  }
 }

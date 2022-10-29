@@ -2,10 +2,25 @@
     About me.
 </button>
 <ng-template #aboutModal let-modal>
+
     <div class="modal-header">
-        關於我
+        Contact Me
     </div>
     <div class="modal-body">
-        嗨嗨
+        <form action="https://formspree.io/f/xzbwbgjl" method="POST" id="SendEmail">
+            <div>
+                <p>Your Email:</p>
+                <input type="email" name="email" class="w-100">
+            </div>
+            <div class="mt-2">
+                <p>Your Message:</p>
+                <textarea name="message" class="w-100" rows="5"></textarea>
+            </div>
+        </form>
     </div>
+    <div class="modal-footer">
+        <button form="SendEmail" type="submit" class="btn btn-primary">Send</button>
+        <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+    </div>
+
 </ng-template>
