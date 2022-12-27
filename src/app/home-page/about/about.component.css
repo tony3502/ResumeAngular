@@ -7,6 +7,16 @@
     align-items: center;
 }
 
+#canvas {
+    position: absolute;
+    z-index: 0;
+}
+
+.zindex {
+    position: relative;
+    z-index: 100;
+}
+
 .text-shadows {
     text-shadow: 1px 2px 4px black;
 }
