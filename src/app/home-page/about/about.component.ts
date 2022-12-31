@@ -1,27 +1,34 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvas!: ElementRef<HTMLCanvasElement>;
   c: any;
   ballArray: Array<Ball> = [];
+  resizeSubject: Subscription = new Subscription;
 
   constructor() { }
+  ngOnDestroy(): void {
+    this.resizeSubject.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.canvasInit();
     this.canvasBallInit();
     this.canvasAnimate();
+    this.resizeSubject = fromEvent(window, 'resize').subscribe(() => { this.canvasInit() });
   }
 
   canvasInit() {
     this.canvas.nativeElement.width = innerWidth;
     this.canvas.nativeElement.height = innerHeight;
     this.c = this.canvas.nativeElement.getContext('2d');
+
   }
 
   canvasBallInit() {
